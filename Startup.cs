@@ -23,6 +23,8 @@ namespace EmployeeManagement
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,19 +53,20 @@ namespace EmployeeManagement
 
             app.UseStaticFiles();
             //app.UseFileServer();
+            app.UseMvcWithDefaultRoute();
 
 
             app.Run(async (context) =>
             {
-                await context.Response
-                .WriteAsync("Hosting Environment:" + env.EnvironmentName);
-            });
+                //    await context.Response
+                //    .WriteAsync("Hosting Environment:" + env.EnvironmentName);
+                //});
 
-            //app.Run(async (context) =>
-            //{
-            //    //throw new Exception("Some error processing the request");
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
+                //app.Run(async (context) =>
+                //{
+                //    //throw new Exception("Some error processing the request");
+                await context.Response.WriteAsync("Hello World!");
+            });
         }
     }
 }
