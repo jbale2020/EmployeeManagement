@@ -36,7 +36,7 @@ namespace EmployeeManagement
                 //};
                 app.UseDeveloperExceptionPage();
             }
-            
+
 
             //app.UseRouting();
 
@@ -50,6 +50,7 @@ namespace EmployeeManagement
             //});
 
             app.UseStaticFiles();
+            //app.UseFileServer();
 
 
             app.Run(async (context) =>
@@ -57,6 +58,12 @@ namespace EmployeeManagement
                 await context.Response
                 .WriteAsync("Hosting Environment:" + env.EnvironmentName);
             });
+
+            //app.Run(async (context) =>
+            //{
+            //    //throw new Exception("Some error processing the request");
+            //    await context.Response.WriteAsync("Hello World!");
+            //});
         }
     }
 }
