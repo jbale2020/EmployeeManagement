@@ -30,8 +30,13 @@ namespace EmployeeManagement
         {
             if (env.IsDevelopment())
             {
+                //DeveloperExceptionPageOptions developerExceptionPageOptions = new DeveloperExceptionPageOptions
+                //{
+                //    SourceCodeLineCount = 1
+                //};
                 app.UseDeveloperExceptionPage();
             }
+            
 
             //app.UseRouting();
 
@@ -44,10 +49,13 @@ namespace EmployeeManagement
             //    });
             //});
 
+            app.UseStaticFiles();
+
+
             app.Run(async (context) =>
             {
                 await context.Response
-                .WriteAsync(_config["MyKey"]);
+                .WriteAsync("Hosting Environment:" + env.EnvironmentName);
             });
         }
     }
