@@ -1,8 +1,13 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
-    <h1>Details.cshtml from Views/Home folder</h1>
-</body>
-</html>
+﻿@model EmployeeManagement.ViewModels.HomeDetailsViewModel
+
+
+    <h3>@Model.PageTitle</h3>
+    <div>
+        Name: @Model.Employee.Name
+    </div>
+    <div>
+        Name: @Model.Employee.Email
+    </div>
+    <div>
+        Name: @Model.Employee.Department
+    </div>
